@@ -11,13 +11,15 @@
 </head>
 
 <body>
-    <form action="">
-        <div class="card col-12">
+    <!--Aqui en action iria la url una vez que se confiure el url-->
+    <form action="#">
+        <div class="card">
+            <!--header-->
             <div class="card-header">
                 <h1>Payment form example</h1>
             </div>
             <div class="card-body">
-
+                <!--Alerta, cuadro rojo-->
                 <div class="row">
                     <div class="col-12">
                         <div class="alert alert-danger" role="alert">
@@ -25,44 +27,49 @@
                         </div>
                     </div>
                 </div>
-
+                <!--Primera fila con 3 columnas, 
+                oninput, ingresa o modifica el contenido del campo de entrada
+                this.value, este hace referencia al campo actual del campo de entrada
+                /[^0-9]/g, es una expresion regular que busca cualquier caracter que no sea un numero(0-9)
+                .replace(..., ''), Reemplaza todos esos caracteres con una cadena vacia ('') eliminandolos del campo
+                responsivas-->
                 <div class="row p-2">
-                    <div class="col-lg-4 col-md-6 col-sd-12">
-                        <label for="exampleDataList" class="form-label">Card #</label>
-                        <input type="text" class="form-control" id="cardNumber" placeholder="xxx" maxlength="16"
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <label for="card" class="form-label">Card #</label>
+                        <input type="text" class="form-control" id="card" placeholder="xxx" maxlength="16"
                             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sd-12">
-                        <label for="exampleDataList" class="form-label">CVC #</label>
-                        <input type="text" class="form-control" id="cardNumber" placeholder="xxx" maxlength="3"
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <label for="cvc" class="form-label">CVC #</label>
+                        <input type="text" class="form-control" id="cvc" placeholder="xxx" maxlength="3"
                             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                     </div>
-                    <div class="col-lg-4 col-sd-12">
-                        <label for="exampleDataList" class="form-label">Amount</label>
-                        <input type="text" class="form-control" id="cardNumber" placeholder="xxxx" maxlength="9"
+                    <div class="col-lg-4 col-sm-12">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="text" class="form-control" id="amount" placeholder="xxxx" maxlength="9"
                             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                     </div>
                 </div>
-
+                <!--una fila y dos columnas resposivas-->
                 <div class="row p-2">
-                    <div class="col-md-6 col-sd-12">
-                        <label for="exampleDataList" class="form-label">Firts Name</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList">
+                    <div class="col-md-6 col-sm-12">
+                        <label for="firtName" class="form-label">Firts Name</label>
+                        <input class="form-control" id="firtName">
                     </div>
-                    <div class="col-md-6 col-sd-12">
-                        <label for="exampleDataList" class="form-label">Last Name</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList">
+                    <div class="col-md-6 col-sm-12">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input class="form-control" id="lastName">
                     </div>
                 </div>
-
+                <!--una fila y tres columnas, en las columnas de la mitad puse un menu desplegable para elegir la ciudad-->
                 <div class="row p-2">
-                    <div class="col-md-6 col-sd-12">
-                        <label for="exampleDataList" class="form-label">City</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList">
+                    <div class="col-md-6 col-sm-12">
+                        <label for="city" class="form-label">City</label>
+                        <input class="form-control" id="city">
                     </div>
 
-                    <div class="col-md-3 col-sd-12">
-                        <label for="exampleDataList" class="form-label">State</label>
+                    <div class="col-md-3 col-sm-12">
+                        <label for="state" class="form-label">State</label>
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Pick a state</option>
                             <option value="1">Catalunya</option>
@@ -70,19 +77,20 @@
                             <option value="3">Comunidad Valenciana</option>
                         </select>
                     </div>
-
-                    <div class="col-md-3 col-sd-12">
-                        <label for="exampleDataList" class="form-label">Post Code</label>
-                        <input class="form-control" type="text" list="datalistOptions" id="exampleDataList"
-                            maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                    <!--este campo tambien lo limitamos en cuando cantidad de numeros y que sean solo 5 numeros de codigo postal-->
+                    <div class="col-md-3 col-sm-12">
+                        <label for="postCode" class="form-label">Post Code</label>
+                        <input class="form-control" type="text" id="postCode" maxlength="5"
+                            oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                     </div>
                 </div>
 
                 <div class="row d-flex justify-content-between p-4">
-                    <div class="col-md-4 col-sd-12 d-flex justify-content-evenly m-2 ">
+                    <!--aqui elegimos las 4 opciones radio mas los 4 iconos de las tarjetas con las que se puede pagar para que el cliente las seleccione-->
+                    <div class="col-md-4 col-sm-12 d-flex justify-content-evenly m-2 ">
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="mastercard"
                                 value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 <i class="fa-brands fa-cc-mastercard"></i>
@@ -90,32 +98,31 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="visa" value="option2">
+                            <label class="form-check-label" for="visa">
                                 <i class="fa-brands fa-cc-visa"></i>
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="paypal"
                                 value="option3">
-                            <label class="form-check-label" for="exampleRadios3">
+                            <label class="form-check-label" for="paypal">
                                 <i class="fa-brands fa-cc-paypal"></i>
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="apple-pay"
                                 value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
+                            <label class="form-check-label" for="apple-pay">
                                 <i class="fa-brands fa-cc-apple-pay"></i>
                             </label>
                         </div>
                     </div>
 
-
-                    <div class="col-md-6 col-sd-12">
+                    <!--el cuadro de mensaje para que el cliente escriba hasta 150 caracteres-->
+                    <div class="col-md-6 col-sm-12">
                         <label for="message" class="form-label">Message</label>
                         <textarea class="form-control" id="message" rows="3" maxlength="150"></textarea>
                         <p>Add any notes here.</p>
@@ -123,10 +130,10 @@
                 </div>
             </div>
 
-
+            <!--dos botones para cancelar y el otro enviar-->
             <div class="card-footer text-body-secondary">
                 <div class=" d-flex justify-content-end">
-                    <button class="btn btn-primary" type="submit">Cancel</button>
+                    <button class="btn btn-primary" type="button">Cancel</button>
                     <button class="btn btn-primary" type="submit">Send</button>
                 </div>
             </div>
